@@ -1,0 +1,77 @@
+<html ng-app='myApp'>
+<head>
+    <title>Angular - directive demo </title>
+    <link href="../assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="../assets/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../assets/css/sampleForm.css" rel="stylesheet" />
+
+</head>
+<body ng-controller="sampleFormController" class='container'>
+    <h2>AngularJS Socks</h2>
+    <form name='registrationForm' ng-submit='register()' class="form-horizontal" novalidate ng-init="init()">
+        <div class='form-group'>
+            <label class="col-sm-2 control-label">First Name</label>
+            <div class="col-sm-10">
+                <input type='text' class="form-control" placeholder='First Name' name='firstName' ng-model='enrollment.firstName' required />
+                <span ng-show='firstNameInvalid' class="label label-danger ng-cloak">Please enter a valid value</span>
+            </div>
+        </div>
+
+        <div class='form-group'>
+            <label class="col-sm-2 control-label">Last Name</label>
+            <div class="col-sm-10">
+                <input type='text' class="form-control" placeholder='Last Name' name='lastName' ng-model='enrollment.lastName' required />
+                <span ng-show='lastNameInvalid' class="label label-danger ng-cloak">Please enter a valid value</span>
+            </div>
+        </div>
+
+        <div class='form-group'>
+            <label class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+                <input type='email' class="form-control" placeholder='Email' name='email' ng-model='enrollment.email' required />
+                <span ng-show='emailInvalid' class="label label-danger ng-cloak">Please enter a valid value</span>
+            </div>
+        </div>
+
+        <div class='form-group'>
+            <label class="col-sm-2 control-label">Channels</label>
+            <div class="col-sm-10">
+                <select name='research' class="form-control" ng-model='selectedChannel' ng-options='obj.name for obj in channels track by obj.id' required>
+                    <option value=''>Where dis you hear about us?</option>
+                </select>
+                <span ng-show="researchInvalid" class="label label-danger ng-cloak">Please tell us where you heard about us</span>
+            </div>
+        </div>
+
+        <div class='form-group'>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10">
+                <input ng-model='enrollment.monthlyNews' type='checkbox' />
+                <label>Monthly newsletter </label>
+            </div>
+        </div>
+
+        <div class='form-group'>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10">
+                <input type='submit' value='Register' class="btn btn-default" ng-disabled="working" />
+                <span ng-show="working" class="ng-cloak">
+                    <img src="../assets/img/loading.gif" width="45" />
+                </span>
+            </div>
+        </div>
+    </form>
+    <div ng-show="showSuccessMessage" class="bs-callout bs-callout-success ng-cloak">
+        Thank you for taking the time to register!
+    </div>
+    <div class="bs-callout bs-callout-warning ng-cloak" ng-show="showErrorMessage ">
+        There appears to have been a problem with your registration.<br />
+    </div>
+    <script src="../assets/js/jquery-1.12.2.js"></script>
+    <script src="../assets/js/bootstrap.js"></script>
+    <script src="../assets/js/angular.js"></script>
+    <script src="../app/app.js"></script>
+    <script src="../app/services/dataStoreService.js"></script>
+    <script src="../app/controllers/sampleFormController.js"></script>
+</body>
+</html>
