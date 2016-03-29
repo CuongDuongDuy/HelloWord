@@ -5,7 +5,7 @@ namespace HelloWord.Api.Models
 {
     public class DbContext : System.Data.Entity.DbContext
     {
-        public DbContext() : base()
+        public DbContext() : base("DbConnection")
         {
             Database.SetInitializer(new DbInitializer());
         }
