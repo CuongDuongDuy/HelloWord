@@ -13,5 +13,12 @@
         });
         return promise;
     }
+
+    service.getEnrollments = function () {
+        var promise = $http({
+            method: 'GET', url: 'http://localhost:63238/api/enrollments'
+        });
+        return promise;
+    }
     return service;
 });

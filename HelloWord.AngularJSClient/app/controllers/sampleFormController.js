@@ -1,10 +1,15 @@
 app.controller('sampleFormController', function ($scope, dataStoreService) {
-	$scope.enrollment = new Object();
 
-	$scope.persons = [];
+    function updateEnrollments() {
+        dataStoreService.getEnrollments().success(function (data, status) {
+            $scope.enrollments = data;
+        });
+    };
+
+    $scope.enrollment = {};
+	$scope.enrollments = [];
     $scope.channels = [];
-
-	$scope.register = function () {
+    $scope.register = function () {
 		$scope.firstNameInvalid = !$scope.registrationForm.firstName.$valid;
 		$scope.lastNameInvalid = !$scope.registrationForm.lastName.$valid;
 		$scope.emailInvalid = !$scope.registrationForm.email.$valid;
@@ -22,14 +27,20 @@ app.controller('sampleFormController', function ($scope, dataStoreService) {
 		    });
 	        promise.finally(function() {
 	            $scope.working = false;
+	            updateEnrollments();
 	        });
-		    $scope.doShow = true;
-		}
+	        $scope.doShow = true;
+	        $scope.enrollment = {};
+	    }
 	};
 
 	$scope.init = function() {
 	    dataStoreService.getChannels().success(function (data, status) {
 	        $scope.channels = data;
+	        updateEnrollments();
 	    });
+	   
 	}
+
+	
 });
