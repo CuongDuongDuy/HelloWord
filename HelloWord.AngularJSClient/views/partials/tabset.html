@@ -1,0 +1,8 @@
+<div role="tabpanel">
+    <ul class="nav nav-tabs" role="tablist" >
+        <li ng-repeat="tab in tabset.tabs" ng-class="{'active': tab.selected}"><a data-target="#{{tab.id}}" data-toggle="tab" ng-click="tabset.selectionChanged(tab)">{{tab.title}}</a></li>
+    </ul>
+
+    <div class="tab-content" ng-transclude>
+    </div>
+</div>
