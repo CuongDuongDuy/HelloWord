@@ -1,8 +1,16 @@
-<div role="tabpanel">
-    <ul class="nav nav-tabs" role="tablist" >
-        <li ng-repeat="tab in tabset.tabs" ng-class="{'active': tab.selected}"><a data-target="#{{tab.id}}" data-toggle="tab" ng-click="tabset.selectionChanged(tab)">{{tab.title}}</a></li>
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li ng-repeat="tab in tabset.tabs" ng-class="{'active': tabset.selectedTab.id === tab.id}">
+            <a ng-click="tabset.selectionChanged(tab)">{{tab.title}}
+                <span class="close tab-close" ng-click="tabset.tabClose(tab)">x</span>
+            </a>
+        </li>
+        <li ng-click="tabset.tabAdd()" class="btn btn-info">+</li>
     </ul>
-
-    <div class="tab-content" ng-transclude>
+    <div class="tab-content">
+        <div class="tab-pane" ng-class="{'active': tabset.selectedTab.id === tab.id}" ng-repeat="tab in tabset.tabs" ng-bind-html="tabset.trustAsHtml(tab.content)">
+        </div>
     </div>
+    <ng-transclude ng-hide="true">
+    </ng-transclude>
 </div>
