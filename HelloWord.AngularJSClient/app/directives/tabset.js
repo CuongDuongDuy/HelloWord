@@ -1,5 +1,5 @@
 app.directive('tabset', function () {
-    var controller = ['$scope', '$sce', 'tabStorageService', function ($scope, $sce, tabStorageService) {
+    var controller = ['$routeParams','$scope', '$sce', 'tabStorageService', function ($routeParams, $scope, $sce, tabStorageService) {
         var self = this;
 
         function saveDataToService() {
@@ -9,28 +9,30 @@ app.directive('tabset', function () {
         };
 
         $scope.loadFromService = function () {
-            self.tabs = tabStorageService.tabs === undefined ? [] : tabStorageService.tabs;
-            self.newTabId = tabStorageService.newTabId === undefined ? 1 : tabStorageService.newTabId;
-            self.selectedTab = tabStorageService.selectedTab === undefined ? undefined : tabStorageService.selectedTab;
+            self.tabs = tabStorageService.tabs;
+            self.newTabId = tabStorageService.newTabId;
+            self.selectedTab = tabStorageService.selectedTab;
         };
 
-        $scope.$on('tabIdChanged', function (event, tabId) {
-            var found = undefined;
-            for (var i = 0, len = self.tabs.length; i < len; i++) {
-                if (self.tabs[i].id === tabId) {
-                    found = self.tabs[i];
-                    break;
+        $scope.idChanged = function() {
+            var tabId = parseInt($routeParams.tabId);
+            if (!isNaN(tabId)) {
+                var found = undefined;
+                for (var i = 0, len = self.tabs.length; i < len; i++) {
+                    if (self.tabs[i].id === tabId) {
+                        found = self.tabs[i];
+                        break;
+                    }
+                }
+                if (found) {
+                    self.selectedTab = found;
+                } else {
+                    self.tabAdd({
+                        id: tabId
+                    });
                 }
             }
-            if (found) {
-                self.selectedTab = found;
-            }
-            else {
-                self.tabAdd({
-                    id: tabId
-                })
-            }
-        });
+        };
 
         function setSelectedTab(tab, addMore) {
             if (addMore === true) {
@@ -48,16 +50,14 @@ app.directive('tabset', function () {
         }
 
         function setNewTabId(newTab) {
-            if (newTab.id === self.newTabId) {
-                self.newTabId++;
-            }
+            self.newTabId = Math.max(newTab.id, self.newTabId) + 1;
         }
 
         self.tabAdd = function (tab) {
             tab = tab === undefined ? {} : tab;
-            tab.content = tab.content === undefined ? 'Tab content ' + self.newTabId : tab.content;
             tab.id = tab.id === undefined ? self.newTabId : tab.id;
-            tab.title = tab.title === undefined ? 'Tab ' + self.newTabId : tab.title;
+            tab.title = tab.title === undefined ? 'Tab ' + tab.id : tab.title;
+            tab.content = tab.content === undefined ? 'Tab content ' + tab.id : tab.content;
             self.tabs.push(tab);
             setSelectedTab(tab, true);
             setNewTabId(tab);
@@ -89,16 +89,15 @@ app.directive('tabset', function () {
         controller: controller,
         link: function (scope, elem, attr) {
             scope.loadFromService();
+            scope.idChanged();
         }
     };
 });
 
 app.directive('tab', function () {
-    var controller = ['tabStorageService','$scope', function(tabStorageService, $scope){
-        $scope.tabAdd(tab, tabsetCtrl)
-        {
-            if(tabStorageService.tabs !== undefined)
-            {
+    var controller = ['$routeParams', '$scope', function ($routeParams, $scope) {
+        $scope.tabAdd = function (tab, tabsetCtrl) {
+            if ($routeParams.tabId === undefined) {
                 tabsetCtrl.tabAdd(tab);
             }
         }

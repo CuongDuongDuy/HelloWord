@@ -5,9 +5,7 @@ app.controller('MyController', ['$scope', '$http', function($scope, $http) {
     });
 }]);
 
-app.controller('customTabController',['$routeParams','$rootScope',function($routeParams, $rootScope){
-    var tabId = $routeParams.tabId;
-    $rootScope.$broadcast('tabIdChanged',tabId);
+app.controller('customTabController', [function() {
 }]);
 
 app.controller('directiveController', function($scope){
