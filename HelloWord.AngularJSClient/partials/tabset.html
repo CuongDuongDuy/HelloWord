@@ -1,5 +1,5 @@
 <div>
-    <ul class="nav nav-tabs" role="tablist">
+    <ul class="nav nav-tabs">
         <li ng-repeat="tab in tabset.tabs" ng-class="{'active': tabset.selectedTab.id === tab.id}">
             <a ng-click="tabset.selectionChanged(tab)">{{tab.title}}
                 <span class="close tab-close" ng-click="tabset.tabClose(tab)">x</span>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="assets/css/customTab.css" rel="stylesheet">
+    <title> Hello Word</title>
+</head>
+<body ng-app="myApp">
+<div>
+    Choose:
+    <a href="#tab">Tab</a>
+    <div ng-view></div>
+</div>
+<script src="assets/js/angular.js" type="text/javascript"></script>
+<script src="assets/js/ngRoute.js"></script>
+<script src="assets/js/ngSanitize.js"></script>
+<script src="app/app.js" type="text/javascript"></script>
+<script src="app/controllers/controllers.js" type="text/javascript"></script>
+<script src="app/services/tabStorageService.js" type="text/javascript"></script>
+<script src="app/directives/tabset.js" type="text/javascript"></script>
+
+</body>
+</html>
