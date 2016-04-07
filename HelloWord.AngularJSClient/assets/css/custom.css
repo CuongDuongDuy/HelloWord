@@ -86,3 +86,142 @@ border-radius: 10px;
 .bs-callout-info h4 {
     color: #5bc0de;
 }
+
+/*Sample Form*/
+
+input[name='email'].ng-dirty.ng-invalid-email { color: red; }
+
+input[name='email'].ng-dirty.ng-valid-email { color: green; }
+
+.ng-cloak { display: none !important; }
+
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.bs-callout p:last-child { margin-bottom: 0; }
+
+.bs-callout code { border-radius: 3px; }
+
+.bs-callout + .bs-callout { margin-top: -5px; }
+
+.bs-callout-default { border-left-color: #777; }
+
+.bs-callout-default h4 { color: #777; }
+
+.bs-callout-primary { border-left-color: #428bca; }
+
+.bs-callout-primary h4 { color: #428bca; }
+
+.bs-callout-success { border-left-color: #5cb85c; }
+
+.bs-callout-success h4 { color: #5cb85c; }
+
+.bs-callout-danger { border-left-color: #d9534f; }
+
+.bs-callout-danger h4 { color: #d9534f; }
+
+.bs-callout-warning { border-left-color: #f0ad4e; }
+
+.bs-callout-warning h4 { color: #f0ad4e; }
+
+.bs-callout-info { border-left-color: #5bc0de; }
+
+.bs-callout-info h4 { color: #5bc0de; }
+
+/*custom tab*/
+
+.tab-close {
+    margin: -2px 0 0 6px;
+}
+
+/*Sample Artist*/
+
+.artistlist {
+  background: #EEE8D5;
+  width: 50%;
+  min-width: 290px;
+  max-width:350px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  border-radius: 0 0 20px 20px;
+  opacity: .95;
+  z-index: 10;
+}
+
+.artistlist ul {
+  margin: 0;
+  padding: 0;
+  background: #FDF6E3;
+}
+
+.artistlist li {
+  margin: 0;
+  padding: 10px 10px 0 10px;
+  border-bottom: 1px dotted black;
+}
+
+.artistlist a {
+  display: block;
+  text-decoration: none;
+}
+
+.artistlist li:hover {
+  background: #FDF6E3;
+}
+
+.artist img {
+  display: block;
+  float: left;
+  width: 60px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.artist info {
+  display: block;
+  float: left;
+  padding-left: 120px !important;
+}
+
+.artist:last-child {
+  border-bottom:none;
+}
+
+.artistinfo {
+  font-size: 1.1em;
+  line-height: 160%;
+  background: #EEE8D5;
+  color: #0F4150;
+  width: 90%;
+  min-width: 320px;
+  max-width: 620px;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  z-index: 20;
+}
+
+.artistinfo h1{
+  font-size: 1.8em;
+  margin-bottom: 0;
+}
+
+.artistinfo img {
+  width: 40%;
+  max-width: 130px;
+  border-radius: 20px;
+}
