@@ -16,7 +16,7 @@
             require: '^tabset',
             replace: true,
             transclude: true,
-            templateUrl: 'shared//tab.html',
+            templateUrl: 'src/app/components/tabset/tab.html',
             scope: {},
             link: function (scope, elem, attr, tabsetCtrl) {
                 scope.content = elem.html();

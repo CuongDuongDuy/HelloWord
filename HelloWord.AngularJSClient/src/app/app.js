@@ -3,12 +3,12 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/tab',
             {
-                templateUrl: 'app/customTab/customTab.html',
+                templateUrl: 'src/app/components/customTab/customTab.html',
                 controller: 'customTabController'
             })
         .when('/tab/:tabId?',
             {
-                templateUrl: 'app/customTab/customTab.html',
+                templateUrl: 'src/app/components/customTab/customTab.html',
                 controller: 'customTabController',
                 reloadOnSearch: false
             });

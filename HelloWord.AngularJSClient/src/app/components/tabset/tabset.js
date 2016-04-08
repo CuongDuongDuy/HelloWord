@@ -86,7 +86,7 @@
         return {
             restrict: 'E',
             transclude: true,
-            templateUrl: 'shared/tabset.html',
+            templateUrl: 'src/app/components/tabset/tabset.html',
             bindToController: true,
             controllerAs: 'tabset',
             scope: {},
