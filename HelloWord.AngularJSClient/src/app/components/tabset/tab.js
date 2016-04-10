@@ -8,7 +8,7 @@
                     if ($routeParams.tabId === undefined) {
                         tabsetCtrl.tabAdd(tab);
                     }
-                }
+                };
             }
         ];
         return {
@@ -16,13 +16,13 @@
             require: '^tabset',
             replace: true,
             transclude: true,
-            templateUrl: 'src/app/components/tabset/tab.html',
+            templateUrl: 'views/tabset/tab.html',
             scope: {},
             link: function (scope, elem, attr, tabsetCtrl) {
                 scope.content = elem.html();
                 scope.tabAdd(scope, tabsetCtrl);
             },
             controller: controller
-        }
+        };
     });
 }());

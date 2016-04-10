@@ -1,0 +1,26 @@
+{
+  "name": "bower.json",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Cuong Duong Duy"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/CuongDuongDuy/HelloWord",
+  "moduleType": [
+    "es6"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "^1.5.3",
+    "angular": "^1.5.3",
+    "angular-sanitize": "^1.5.3"
+  }
+}

@@ -7,7 +7,7 @@
             dataStore.getEnrollments().success(function (data, status) {
                 $scope.enrollments = data;
             });
-        };
+        }
 
         $scope.enrollment = {};
         $scope.enrollments = [];
@@ -43,6 +43,6 @@
                 updateEnrollments();
             });
 
-        }
+        };
     });
 })();

@@ -10,7 +10,7 @@
                 tabStore.tabs = self.tabs;
                 tabStore.newTabId = self.newTabId;
                 tabStore.selectedTab = self.selectedTab;
-            };
+            }
 
             $scope.loadFromService = function () {
                 self.tabs = tabStore.tabs;
@@ -21,7 +21,7 @@
             $scope.idChanged = function () {
                 var tabId = parseInt($routeParams.tabId);
                 if (!isNaN(tabId)) {
-                    var found = undefined;
+                    var found;
                     for (var i = 0, len = self.tabs.length; i < len; i++) {
                         if (self.tabs[i].id === tabId) {
                             found = self.tabs[i];
@@ -86,7 +86,7 @@
         return {
             restrict: 'E',
             transclude: true,
-            templateUrl: 'src/app/components/tabset/tabset.html',
+            templateUrl: 'views/tabset/tabset.html',
             bindToController: true,
             controllerAs: 'tabset',
             scope: {},
