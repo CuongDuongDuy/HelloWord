@@ -1,27 +1,11 @@
 ﻿(function () {
     'use strict';
-    app.factory('dataStore', function ($http) {
-        var service = {};
-        service.doRegistration = function (data) {
-            var promise = $http({
-                method: 'POST', url: 'http://localhost:63238/api/enrollments', data: data
-            });
-            return promise;
-        };
 
-        service.getChannels = function () {
-            var promise = $http({
-                method: 'GET', url: 'http://localhost:63238/api/channels'
-            });
-            return promise;
-        };
+    var app = angular.module('helloWordApp.dataStore');
+    var resourceApi = 'http://localhost:63238';
 
-        service.getEnrollments = function () {
-            var promise = $http({
-                method: 'GET', url: 'http://localhost:63238/api/enrollments'
-            });
-            return promise;
-        };
-        return service;
+    app.constant('resourceLinks', {
+        enrollment: resourceApi + '/enrollments',
+        channel: resourceApi + '/channels'
     });
 }());

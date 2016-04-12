@@ -1,5 +1,6 @@
 ﻿(function () {
     'use strict';
+    var app = angular.module('helloWordApp');
     app.directive('colorList', function ($compile) {
         return {
             restrict: 'AE',

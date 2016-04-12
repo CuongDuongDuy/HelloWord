@@ -9,7 +9,7 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 
 
-var scriptLocations = ['src/app/app.js', 'src/app/components/**/*.js', 'src/app/js/services/*.js'];
+var scriptLocations = ['src/app/app.js', 'src/app/components/**/*.js', 'src/app/js/**/*'];
 
 // Auto server running
 var express = require('express'),
@@ -46,15 +46,15 @@ gulp.task('sass', function() {
 
 // Style css
 gulp.task('styles', function() {
-   gulp.src('src/app/styles/*.css')
+   gulp.src('src/app/styles/**/*')
         .pipe(gulp.dest('dist/styles'));
     console.log('Styles completely');
 });
 
 // Bower copying
-gulp.task('bowerCopying', function(){
+gulp.task('bowerCopying', function() {
     gulp.src('bower_components/**/*')
-        .pipe(gulp.dest('dist/bower_components/'))
+        .pipe(gulp.dest('dist/bower_components/'));
 });
 
 // Concatenate & Minify JS

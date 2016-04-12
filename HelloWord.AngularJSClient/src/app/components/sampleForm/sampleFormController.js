@@ -1,10 +1,12 @@
 ﻿(function () {
     'use strict';
 
-    app.controller('sampleFormController', function ($scope, dataStore) {
+    var app = angular.module('helloWordApp');
+
+    app.controller('sampleFormController', ['$scope', 'channelStore', 'enrollmentStore', function ($scope, channelStore, enrollmentStore) {
 
         function updateEnrollments() {
-            dataStore.getEnrollments().success(function (data, status) {
+            enrollmentStore.getEnrollments().success(function (data, status) {
                 $scope.enrollments = data;
             });
         }
@@ -20,7 +22,7 @@
             if ($scope.registrationForm.$valid) {
                 $scope.working = true;
                 $scope.enrollment.channelId = $scope.selectedChannel.id;
-                var promise = dataStore.doRegistration($scope.enrollment);
+                var promise = enrollmentStore.doRegistration($scope.enrollment);
                 promise.success(function (data, status) {
                     $scope.showSuccessMessage = true;
                 });
@@ -38,11 +40,11 @@
         };
 
         $scope.init = function () {
-            dataStore.getChannels().success(function (data, status) {
+            channelStore.getChannels().success(function (data, status) {
                 $scope.channels = data;
                 updateEnrollments();
             });
 
         };
-    });
+    }]);
 })();

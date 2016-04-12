@@ -1,6 +1,8 @@
 ﻿(function () {
     'use strict';
 
+    var app = angular.module('helloWordApp.directive');
+
     app.directive('tab', function () {
         var controller = [
             '$routeParams', '$scope', function ($routeParams, $scope) {
