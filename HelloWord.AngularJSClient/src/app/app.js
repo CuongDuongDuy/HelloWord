@@ -1,6 +1,16 @@
 ﻿(function() {
     'use strict';
-    var app = angular.module('helloWordApp', ['ngSanitize', 'ngRoute', 'helloWordApp.dataStore'], 'helloWordApp.directive');
+
+    var dataStore = angular.module('helloWordApp.dataStore',[]);
+
+    var resourceApi = 'http://localhost:63238';
+
+    dataStore.constant('resourceLinks', {
+        enrollment: resourceApi + '/enrollments',
+        channel: resourceApi + '/channels'
+    });
+
+    var app = angular.module('helloWordApp', ['ngSanitize', 'ngRoute','helloWordApp.dataStore']);
     app.config([
         '$routeProvider', function($routeProvider) {
             $routeProvider

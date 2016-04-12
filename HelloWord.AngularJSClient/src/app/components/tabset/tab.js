@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    var app = angular.module('helloWordApp.directive');
+    var app = angular.module('helloWordApp');
 
     app.directive('tab', function () {
         var controller = [

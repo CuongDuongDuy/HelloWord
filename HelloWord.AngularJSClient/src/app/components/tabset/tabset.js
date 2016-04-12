@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var app = angular.module('helloWordApp.directive');
+    var app = angular.module('helloWordApp');
 
     app.directive('tabset', function () {
         var controller = ['$routeParams', '$scope', '$sce', 'tabStore', function ($routeParams, $scope, $sce, tabStore) {
