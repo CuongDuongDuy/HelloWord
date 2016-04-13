@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    var app = angular.module('helloWordApp.dataStore');
+    var app = angular.module('helloWordApp');
 
     app.factory('channelStore', [
         '$http', 'resourceLinks', function ($http, resourceLinks) {

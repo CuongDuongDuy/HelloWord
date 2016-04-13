@@ -1,16 +1,7 @@
 ﻿(function() {
     'use strict';
 
-    var dataStore = angular.module('helloWordApp.dataStore',[]);
-
-    var resourceApi = 'http://localhost:63238';
-
-    dataStore.constant('resourceLinks', {
-        enrollment: resourceApi + '/enrollments',
-        channel: resourceApi + '/channels'
-    });
-
-    var app = angular.module('helloWordApp', ['ngSanitize', 'ngRoute','helloWordApp.dataStore']);
+    var app = angular.module('helloWordApp', ['ngSanitize', 'ngRoute']);
     app.config([
         '$routeProvider', function($routeProvider) {
             $routeProvider
@@ -31,6 +22,13 @@
                 });
         }
     ]);
+
+    var resourceApi = 'http://localhost:63238';
+    app.constant('resourceLinks', {
+        enrollment: resourceApi + '/enrollments',
+        channel: resourceApi + '/channels'
+    });
+
 }());
 
 
