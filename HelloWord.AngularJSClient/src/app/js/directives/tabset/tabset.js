@@ -87,7 +87,7 @@
         return {
             restrict: 'E',
             transclude: true,
-            templateUrl: 'views/tabset/tabset.html',
+            templateUrl: 'views/directives/tabset/tabset.html',
             bindToController: true,
             controllerAs: 'tabset',
             scope: {},

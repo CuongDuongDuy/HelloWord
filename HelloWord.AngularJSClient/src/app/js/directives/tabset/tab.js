@@ -18,7 +18,7 @@
             require: '^tabset',
             replace: true,
             transclude: true,
-            templateUrl: 'views/tabset/tab.html',
+            templateUrl: 'views/directives/tabset/tab.html',
             scope: {},
             link: function (scope, elem, attr, tabsetCtrl) {
                 scope.content = elem.html();
